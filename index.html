@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎴 親子圖像記憶卡</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap');
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+      background: #f0f4ff;
+      padding: 20px;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .header h1 {
+      font-size: 2rem;
+      color: #3b3b98;
+      margin-bottom: 8px;
+    }
+
+    .header p {
+      color: #666;
+      font-size: 1rem;
+    }
+
+    .btn-print {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 12px 32px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+      transition: transform 0.2s;
+    }
+
+    .btn-print:hover {
+      transform: translateY(-2px);
+    }
+
+    .page {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      max-width: 1100px;
+      margin: 0 auto 40px;
+      background: white;
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .card {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      break-inside: avoid;
+      border: 2px solid #eee;
+    }
+
+    .card-image {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: contain;
+      background: #fafafa;
+      padding: 8px;
+    }
+
+    .card-text {
+      padding: 12px 8px 16px;
+      text-align: center;
+      background: linear-gradient(180deg, #ffffff 0%, #f8f9ff 100%);
+    }
+
+    .card-chinese {
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: #2d2d7a;
+      line-height: 1.2;
+    }
+
+    .card-english {
+      font-size: 1rem;
+      color: #888;
+      margin-top: 4px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* ============================================
+       PRINT STYLES
+       ============================================ */
+    @media print {
+      @page {
+        size: A4;
+        margin: 12mm;
+      }
+
+      body {
+        background: white;
+        padding: 0;
+        font-family: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+      }
+
+      .header {
+        display: none;
+      }
+
+      .page {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        padding: 0;
+        margin: 0;
+        box-shadow: none;
+        border-radius: 0;
+        background: white;
+        page-break-after: always;
+      }
+
+      .page:last-child {
+        page-break-after: auto;
+      }
+
+      .card {
+        border: 1.5px solid #ddd;
+        border-radius: 10px;
+        box-shadow: none;
+        overflow: hidden;
+        margin: 0;
+      }
+
+      .card-image {
+        padding: 6px;
+        background: white;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1 / 1;
+        object-fit: contain;
+      }
+
+      .card-text {
+        padding: 8px 4px 10px;
+        background: white;
+      }
+
+      .card-chinese {
+        font-size: 1.6rem;
+        color: #1a1a5e;
+        font-weight: 900;
+        line-height: 1.1;
+      }
+
+      .card-english {
+        font-size: 0.75rem;
+        color: #888;
+        margin-top: 2px;
+        letter-spacing: 0.5px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>🎴 親子圖像記憶卡</h1>
+    <p>10張卡通詞彙卡 · 繁體中文 + 英文 · 適合打印</p>
+    <button class="btn-print" onclick="window.print()">🖨️ 打印記憶卡</button>
+  </div>
+
+  <!-- 第一頁：卡片 1-9 -->
+  <div class="page">
+    <div class="card">
+      <img class="card-image" src="images/apple.png" alt="蘋果">
+      <div class="card-text">
+        <div class="card-chinese">蘋果</div>
+        <div class="card-english">Apple</div>
+      </div>
+    </div>
+    <div class="card">
+      <img class="card-image" src="images/dog.png" alt="狗">
+      <div class="card-text">
+        <div class="card-chinese">狗</div>
+        <div class="card-english">Dog</div>
+      </div>
+    </div>
+    <div class="card">
+      <img class="card-image" src="images/sun.png" alt="太陽">
+      <div class="card-text">
+        <div class="card-chinese">太陽</div>
+        <div class="card-english">Sun</div>
+      </div>
+    </div>
+    <div class="card">
+      <img class="card-image" src="images/book.png" alt="書">
+      <div class="card-text">
+        <div class="card-chinese">書</div>
+        <div class="card-english">Book</div>
+      </div>
+    </div>
+    <div class="card">
+      <img class="card-image" src="images/fish.png" alt="魚">
+      <div class="card-text">
+        <div class="card-chinese">魚</div>
+        <div class="card-english">Fish</div>
+      </div>
+    </div>
+    <div class="card">
+      <img class="card-image" src="images/bird.png" alt="鳥">
+      <div class="card-text">
+        <div class="card-chinese">鳥</div>
+        <div class="card-english">Bird</div>
+      </div>
+    </div>
+    <div class="card">
+      <img class="card-image" src="images/flower.png" alt="花">
+      <div class="card-text">
+        <div class="card-chinese">花</div>
+        <div class="card-english">Flower</div>
+      </div>
+    </div>
+    <div class="card">
+      <img class="card-image" src="images/star.png" alt="星星">
+      <div class="card-text">
+        <div class="card-chinese">星星</div>
+        <div class="card-english">Star</div>
+      </div>
+    </div>
+    <div class="card">
+      <img class="card-image" src="images/cat.png" alt="貓">
+      <div class="card-text">
+        <div class="card-chinese">貓</div>
+        <div class="card-english">Cat</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 第二頁：卡片 10 -->
+  <div class="page">
+    <div class="card">
+      <img class="card-image" src="images/moon.png" alt="月亮">
+      <div class="card-text">
+        <div class="card-chinese">月亮</div>
+        <div class="card-english">Moon</div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
